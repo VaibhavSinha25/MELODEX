@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,800,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="icon"  href="logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melodex - Web Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <script defer src="scripts.js"></script>  -->
+    <script defer src="script2.js"></script> 
+</head>
+<body>
+    <div class="container">
+        
+        <nav>
+
+            <div class="icon">
+                <div class="controls">
+                    
+                    <div id="prevButton"><i class="fa-solid fa-backward"  style="color: #a601f5;"></i></div>
+                    <div onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div>
+                    <div id="nextButton"><i class="fa-solid fa-forward"   style="color: #a601f5;"></i></div>
+                    
+                </div>
+               
+            <audio  class="nav-audio" id="song">
+                <source id="audioSource" src="" type="audio/mpeg">
+            </audio>
+            <input type="range" value="0" id="progress">
+        </div>
+
+
+        <div class="songnav">
+            <div class="songnavimg">
+                <a href="preview.html" class="preview-btn"><div><img class="preview-img" src="display.png" alt="icon"></div></a>
+            </div>
+            <div class="songnavinfo">
+             <div ><p1 class="song-name"></p1></div>
+             <marquee scrollamount="3"><p2 class="artist-name"></p2></marquee>
+            </div>
+        </div>
+        <div class="vol">
+            <div id="mute-button"><i class="fa-solid fa-volume-off" style="color: #02f1ff;"></i></div>
+            <input type="range" id="volume-control" min="0" max="100" value="50">
+            <div id="full-button"><i class="fa-solid fa-volume-high" style="color: #02f1ff;"></i></div>
+        </div>
+        </nav>
+        <main class="main-container">
+            <div class="heading-2 main-heading">
+                <h1>Top Picks for You</h1>
+            </div>
+            
+            <div class="main-scroll-div">
+ 
+                <div class="">
+                    <button class="icon1 left-slide">
+                        <img src="left.png" alt="random">
+                    </button>
+                </div>
+                <div class="cover">
+                    <div class="scroll-images">
+                        <div class="child" data-song="despacito" data-name="Louis Fonsi"><img class="child-img" src="songs/despacito.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Despacito</p1><p2>Luis Fonsi , ft.Freddy Junkee</p2></div></div>
+                        <div class="child" data-song="phelebhimein" data-name="Vishal Mishra & Raj Shekhar"><img class="child-img" src="songs/phelebhimein.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Phele Bhi Main</p1><p2>Vishal Mishra & Raj Shekhar</p2></div></div>
+                        <div class="child" data-song="desikalakaar" data-name="Honey Singh"><img class="child-img" src="songs/desikalakaar.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Desi Kalakaar</p1><p2>Yo Yo Honey Singh</p2></div></div>
+                        <div class="child" data-song="yaarharyanete" data-name="KHASA ALA CHAHAR & KD DESIROCK"><img class="child-img" src="songs/yaarharyanete.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Yaar Haryane Te</p1><p2>KHASA ALA CHAHAR & KD DESIROCK</p2></div></div>
+                        <div class="child" data-song="letmeloveyou" data-name="DJ Snake ft. Justin Bieber"><img class="child-img" src="songs/letmeloveyou.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Let Me Love You</p1><p2>DJ Snake , ft.Justin Bieber</p2></div></div>
+                        <div class="child" data-song="borntoshine" data-name="Dilijit Dosanjh"><img class="child-img" src="songs/borntoshine.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Born To Shine</p1><p2>Diljit Dosanjh</p2></div></div>
+                        <div class="child" data-song="tumhiho" data-name="Arijit Singh"><img class="child-img" src="songs/tumhiho.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Tum Hi Ho</p1><p2>Arijit Singh</p2></div></div>
+                        <div class="child" data-song="samebeef" data-name="Sidhu Moose Wala"><img class="child-img" src="songs/samebeef.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Same Beef</p1><p2>Sidhu Moose Wala</p2></div></div>
+
+                    </div>
+                </div>
+                <div class="">
+                    <button class="icon1 right-slide">
+                        <img src="right.png" alt="random">
+                    </button>
+                </div>
+            </div>
+            <div class="heading-1">
+                <h1>English</h1>
+            </div>
+            
+            <div class="main-scroll-div">
+                
+                <div class="">
+                    <button class="icon1 left-slide">
+                        <img src="left.png" alt="random">
+                    </button>
+                </div>
+                <div class="cover">
+                    <div class="scroll-images">
+                        <div class="child" data-song="peaches" data-name="Justin Bieber"><img class="child-img" src="songs/peaches.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Peaches</p1><p2>Justin Bieber</p2></div></div>
+                        <div class="child" data-song="jalebibaby" data-name="Tesher x Jason Derolo"><img class="child-img" src="songs/jalebibaby.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Jalebi Baby</p1><p2>Tesher x Jason Derolo</p2></div></div>
+                        <div class="child" data-song="happierthanever" data-name="Billie Eilish"><img class="child-img" src="songs/happierthanever.jpg" alt="randomimage" ><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Happier Than Ever</p1><p2>Billie Eilish</p2></div></div>
+                        <div class="child" data-song="shapeofyou" data-name="Ed Sheeran"><img class="child-img" src="songs/shapeofyou.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Shape of You</p1><p2>Ed Sheeran</p2></div></div>
+                        <div class="child" data-song="onedirection" data-name="One Direction"><img class="child-img" src="songs/onedirection.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>One Direction</p1><p2>One Direction</p2></div></div>
+                        <div class="child" data-song="despacito" data-name="Luis Fonsi , ft.Freddy Junkee"><img class="child-img" src="songs/despacito.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Despacito</p1><p2>Luis Fonsi , ft.Freddy Junkee</p2></div></div>
+                        <div class="child" data-song="baby" data-name="Justin Bieber"><img class="child-img" src="songs/baby.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Baby</p1><p2>Justin Bieber</p2></div></div>
+                        <div class="child" data-song="letmeloveyou" data-name="DJ Snake , ft.Justin Bieber"><img class="child-img" src="songs/letmeloveyou.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Let Me Love You</p1><p2>DJ Snake , ft.Justin Bieber</p2></div></div>
+
+                    </div>
+                </div>
+                <div class="">
+                    <button class="icon1 right-slide">
+                        <img src="right.png" alt="random">
+                    </button>
+                </div>
+            </div>
+
+
+
+            <div class="heading-1">
+                <h1>Hindi</h1>
+            </div>
+            
+            <div class="main-scroll-div">
+                
+                <div class="">
+                    <button class="icon1 left-slide">
+                        <img src="left.png" alt="random">
+                    </button>
+                </div>
+                <div class="cover">
+                    <div class="scroll-images">
+                        <div class="child" data-song="terebin" data-name="Rahat Fateh Ali Khan , Asses Kaur"><img class="child-img" src="songs/terebin.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Tere Bin</p1><p2>Rahat Fateh Ali Khan , Asses Kaur</p2></div></div>
+                        <div class="child" data-song="agartumsathho" data-name="Alka Yagnik , Arijit Singh"><img class="child-img" src="songs/agartumsathho.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Agar Tum Saath ho</p1><p2>Alka Yagnik , Arijit Singh</p2></div></div>
+                        <div class="child" data-song="sunrahahainatu" data-name="Ankit Tiwari"><img class="child-img" src="songs/sunrahahainatu.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Sunn Raha Haina Tu</p1><p2>Ankit Tiwari</p2></div></div>
+                        <div class="child" data-song="kunfayakun" data-name="A.R. Rahman , Javed Ali"><img class="child-img" src="songs/kunfayakun.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Kun Faya Kun</p1><p2>A.R. Rahman , Javed Ali</p2></div></div>
+                        <div class="child" data-song="phelebhimein" data-name="Vishal Mishra & Raj Shekhar"><img class="child-img" src="songs/animal.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Phele Bhi Main</p1><p2>Vishal Mishra & Raj Shekhar</p2></div></div>
+                        <div class="child" data-song="tumhiho" data-name="Arijit Singh"><img class="child-img" src="songs/tumhiho.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Tum Hi Ho</p1><p2>Arijit Singh</p2></div></div>
+                        <div class="child" data-song="terabanjaunga" data-name="Akhil Sachdeva & Tulsi Kumar"><img class="child-img" src="songs/terabanjaunga.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Tera Ban Jaunga</p1><p2>Akhil Sachdeva & Tulsi Kumar</p2></div></div>
+                        <div class="child" data-song="lukachuppi" data-name="A.R.Rahman & Lata Mangeshkar"><img class="child-img" src="songs/lukachuppi.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Luka Chuppi</p1><p2>A.R.Rahman & Lata Mangeshkar</p2></div></div>
+
+                    </div>
+                </div>
+                <div class="">
+                    <button class="icon1 right-slide">
+                        <img src="right.png" alt="random">
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="heading-1">
+                <h1>Punjabi</h1>
+            </div>
+            
+            <div class="main-scroll-div">
+                
+                <div class="">
+                    <button class="icon1 left-slide">
+                        <img src="left.png" alt="random">
+                    </button>
+                </div>
+                <div class="cover">
+                    <div class="scroll-images">
+                        <div class="child" data-song="lalkaara" data-name="Diljit Dosanjh"><img class="child-img" src="songs/lalkaara.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Lalkara</p1><p2>Diljit Dosanjh , ft.Sultaan</p2></div></div>
+                        <div class="child" data-song="hasshass" data-name="Diljit Dosanjh , Sia & Gregkurstin"><img class="child-img" src="songs/hasshass.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Hass Hass</p1><p2>Diljit Dosanjh , Sia & Gregkurstin</p2></div></div>
+                        <div class="child" data-song="sohigh" data-name="Sidhu Moose Wala"><img class="child-img" src="songs/sohigh.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>So High</p1><p2>Sidhu Moose Wala</p2></div></div>
+                        <div class="child" data-song="samebeef" data-name="Sidhu Moose Wala"><img class="child-img" src="songs/samebeef.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Same Beef</p1><p2>Sidhu Moose Wala</p2></div></div>
+                        <div class="child" data-song="blueeyes" data-name="Yo Yo Honey Singh"><img class="child-img" src="songs/blueeyes.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Blue Eyes</p1><p2>Yo Yo Honey Singh</p2></div></div>
+                        <div class="child" data-song="desikalakaar" data-name="Yo Yo Honey Singh"><img class="child-img" src="songs/desikalakaar.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Desi Kalakaar</p1><p2>Yo Yo Honey Singh</p2></div></div>
+                        <div class="child" data-song="chaska" data-name="Raja Baath & Yo Yo Honey Singh"><img class="child-img" src="songs/chaska.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>chaska</p1><p2>Raja Baath & Yo Yo Honey Singh</p2></div></div>
+                        <div class="child" data-song="borntoshine" data-name="Diljit Dosanjh"><img class="child-img" src="songs/borntoshine.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Born To Shine</p1><p2>Diljit Dosanjh</p2></div></div>
+
+                    </div>
+                </div>
+                <div class="">
+                    <button class="icon1 right-slide" onclick="scrollr">
+                        <img src="right.png" alt="random">
+                    </button>
+                </div>
+            </div>
+
+
+
+            <div class="heading-1">
+                <h1>Haryanvi</h1>
+            </div>
+            
+            <div class="main-scroll-div">
+                
+                <div class="">
+                    <button class="icon1 left-slide">
+                        <img src="left.png" alt="random">
+                    </button>
+                </div>
+                <div class="cover">
+                    <div class="scroll-images">
+                        <div class="child" data-song="yaarharyanete" data-name="KHASA ALA CHAHAR & KD DESIROCK"><img class="child-img" src="songs/yaarharyanete.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>Yaar Haryane Te</p1><p2>KHASA ALA CHAHAR & KD DESIROCK</p2></div></div>
+                        <div class="child" data-song="haryanahood" data-name="IRSHAD KHAN"><img class="child-img" src="songs/haryanahood.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>HARYANA HOOD</p1><p2>IRSHAD KHAN</p2></div></div>
+                        <div class="child" data-song="roots" data-name="BINTU PABRA"><img class="child-img" src="songs/roots.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>ROOTS</p1><p2>BINTU PABRA</p2></div></div>
+                        <div class="child" data-song="lootliya" data-name="KHASA ALA CHAHAR"><img class="child-img" src="songs/lootliya.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>LOOT LIYA</p1><p2>KHASA ALA CHAHAR</p2></div></div>
+                        <div class="child" data-song="gypsy" data-name="GD KAUR , SHINE & DINESH GOLAN"><img class="child-img" src="songs/gypsy.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>GYPSY</p1><p2>GD KAUR , SHINE & DINESH GOLAN</p2></div></div>
+                        <div class="child" data-song="choudharjaatki" data-name="RAJU PUNJABI"><img class="child-img" src="songs/choudharjaatki.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>CHOUDHAR JAAT KI</p1><p2>RAJU PUNJABI</p2></div></div>
+                        <div class="child" data-song="dabyanikarde" data-name="NDEE KUNDU & BINTU PABRA"><img class="child-img" src="songs/dabyanikarde.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>DABYA NI KARDE</p1><p2>NDEE KUNDU & BINTU PABRA</p2></div></div>
+                        <div class="child" data-song="fortuner" data-name="VIKRAM SARKAR & MANISHA SHARMA"><img class="child-img" src="songs/fortuner.jpg" alt="randomimage"><div class="div-play"><i class="fa-solid fa-play" id="ctrlIcon" style="color: #02f1ff;"></i></div><div class="song-info"><p1>FORTUNER</p1><p2>VIKRAM SARKAR & MANISHA SHARMA</p2></div></div>
+
+                    </div>
+                </div>
+                <div class="">
+                    <button class="icon1 right-slide" onclick="scrollr">
+                        <img src="right.png" alt="random">
+                    </button>
+                </div>
+            </div>
+
+
+
+            
+
+          
+            
+        </main>
+        <div class="home-container">
+            <div class="home1">
+                <div><img class="home1-logo" src="logoname.PNG" alt="image"></div>
+                <div><p10>Immerse yourself in a world of melodies.</p10></div>
+                <div class="p11"><p11>Welcome to our music haven, where every note tells a story. <br>
+                    Dive into a symphony 
+                    of sounds and find your perfect 
+                    rhythm with our curated collections.<br>
+                </p11></div class="btn-home1">
+                <button class="home1-btn">
+                    <p12>Try It Free</p12>
+                </button>
+            </div>
+            <div class="home2">
+                <div><img class="laptop" src="homescreen.png" alt="image"></div>
+            </div>
+
+        </div>
+    <!-- ---------anugrahnew--------- -->
+         <div class="about-container">
+            <div class="about-head">
+                <div class="about-h1"><p30>About</p30> <img class="about-h1-img" src="logoname.PNG" alt="logo"></div>
+                <div class="about-h2"><p31>Melodex is a state-of-the-art music playing website developed by a passionate team of three. Our mission is to provide a seamless and enjoyable music listening experience.</p31></div>
+            <div class="about-h3">Our Team</div>
+            </div>
+            <div class="about1">
+                <div class="card-container">
+                <div class="card">
+                    <div class="front"><div class="front1a"></div>
+                <div class="front2">VAIBHAV</div></div>
+                  <div class="back">
+                    <div class="back-head">Front-end Developer</div>
+                   <div class="back-intro"><p41>Vaibhav is a 3rd year B-tech student who complements anugrah's effort by adding innovative features. </p41></div>
+                   <div class="back-icon">
+                    <a href="https://www.linkedin.com/in/-vaibhav-sinha?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i id="back-icon" class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
+                        <a href="https://github.com/Vaibhavsinha25"><i id="back-icon" class="fa-brands fa-github" style="color: #ffffff;"></i></a>
+                        <a href="mailto:vaibhavsinha0825@gmail.com"><i id="back-icon" class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+                  </div>  
+                </div>
+                </div>
+                </div>
+                <div class="card-container">
+                <div class="card">
+                    <div class="front"><div class="front1b"></div>
+                <div class="front2">ANUGRAH</div></div>
+                    <div class="back">
+                        <div class="back-head">Front-end Developer</div>
+                     <div class="back-intro"> <p41>Anugrah is a 3rd year B-TECH student with a 
+                        passion of creating visually appealing interfaces and responsive designs</p41>
+                    </div>
+                     <div class="back-icon">
+                        <a href="https://www.linkedin.com/in/anugrah-singh-161089266?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i id="back-icon" class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
+                        <a href="https://github.com/anugrahsingh7"><i id="back-icon" class="fa-brands fa-github" style="color: #ffffff;"></i></a>
+                        <a href="mailto:anugrahsingh7777@gmail.com"><i id="back-icon" class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+                     </div>
+                    </div>
+                </div>
+                  </div>
+                  <div class="card-container">
+                  <div class="card">
+                    <div class="front"><div class="front1c"></div>
+                    <div class="front2">VANSH</div></div>
+                    <div class="back">
+                        <div class="back-head">Back-end Developer</div>
+                     <div class="back-intro"> <p41>Vansh is a 3rd year B-TECH student , he 
+                       is the powerhouse behind the scene , crafting robust data base in back-end.</p41>
+                    </div>
+                     <div class="back-icon">
+                        <a href="https://linkedin.com/in/vansh-agarwal-07b862250"><i id="back-icon" class="fa-brands fa-linkedin" style="color: #ffffff;"></i></a>
+                        <a href="https://github.com/vanshag1208"><i id="back-icon" class="fa-brands fa-github" style="color: #ffffff;"></i></a>
+                        <a href="mailto:vanshagarwal1208@gmail.com"><i id="back-icon" class="fa-solid fa-envelope" style="color: #ffffff;"></i></a>
+                     </div>
+                    </div>
+                </div>
+                  </div>
+              </div>
+                <div class="about-foot">
+                <div class="foot1">What makes Melodex Unique ?</div>
+                <div class="foot2">- User-Friendly Interface</div>
+                <div class="foot3">- Dynamic Features</div>
+                <div class="foot4">- Dolby Atmos Quality</div>
+                <div class="foot5"> <button class="footbtn">Try It Free</button></div>
+                <div class="foot6">Version 1.0</div>
+                <div class="foot7">© All Rights Reserved By MELODEX</div>
+              </div>
+         </div>
+<!-- ---------anugrah--------- -->
+        
+        
+        
+        
+        <div id="sidebar">
+
+
+        
+            <div class="logo">
+                <div class="logoimg">
+                    <img class= "limg" src="logoname.PNG" alt="random image">
+                </div>
+              </div>
+
+       
+              <div class="search-container">
+                <form  class="search-form">
+                    <input class="Searching" type="text" placeholder="Search" name="search">
+                </form>
+            </div>
+
+        
+        
+            <button class="home">
+                <img class="himg" src="home.PNG" alt="randomimage">
+            </button>
+            <button class="browse">
+                <img class="bimg"src="browse.PNG" alt="randomimage">
+
+            </button>
+            <button class="about">
+                <img class="aimg"src="about.PNG" alt="randomimage">
+            </button>
+
+            <div class="footer">
+                <h2>©</h2><h4> All Rights Reserved By <span>MELODEX</span></h4>
+            </div>
+
+       
+       
+       
+      </div>
+</body>
+</html>

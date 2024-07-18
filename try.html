@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play Song on Click</title>
+    <style>
+      #play {
+        width: 200px;
+        height: 50px;
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="play">Play</div>
+    <audio controls src="songs/agartumsathho.jpg"></audio>
+    <script>
+      let play = document.getElementById("play");
+      function playMusic() {
+        let audio = new Audio("songs/lalkaara.mp3");
+        audio.play();
+      }
+      play.addEventListener("click", playMusic);
+    </script>
+  </body>
+</html>

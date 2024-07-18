@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Melodex - Web Player</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0%;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .container {
+        background: linear-gradient(300deg, deepskyblue, darkviolet, blue);
+        background-size: 180% 180%;
+        animation: gradient-animation 9s ease infinite;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+
+        align-items: center;
+      }
+
+      @keyframes gradient-animation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .container2 {
+        width: 35vw;
+        height: 70vh;
+        border: 0;
+        border-radius: 40px;
+        background: #f1f3f4;
+        backdrop-filter: blur(100px);
+        box-shadow: 0px 0px 20px black;
+        flex-direction: column;
+      }
+      .image-container {
+        height: 85%;
+        width: 100%;
+        display: flex;
+        background: transparent;
+        justify-content: center;
+        align-items: center;
+      }
+      .audiocontrols {
+        height: 0%;
+        width: 100%;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .song-image {
+        width: 17.5vw;
+        height: 28vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+      img {
+        top: -10px;
+        width: 25vw;
+        height: 40vh;
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px black;
+        margin: 1%;
+      }
+      p1 {
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+        font-size: 30px;
+      }
+      p2 {
+        color: rgb(0, 0, 0);
+        opacity: 0.6;
+        font-size: 15px;
+      }
+      audio:hover {
+        cursor: pointer;
+      }
+    </style>
+
+    <!-- <script defer src="scripts.js"></script> -->
+  </head>
+  <body>
+    <div class="container">
+      <div class="container2">
+        <div class="image-container">
+          <div class="song-image">
+            <img
+              class="preview-image"
+              src="songs/peaches.jpg"
+              alt="songimage"
+            />
+            <div class="song-info">
+              <p1 class="song-name">Peaches</p1><br /><p2 class="artist"
+                >Justin Bieber</p2
+              >
+            </div>
+          </div>
+        </div>
+        <div class="audiocontrols">
+          <audio class="audio" controls></audio>
+        </div>
+      </div>
+    </div>
+    <script>
+      // const progress = document.getElementById("progress");
+      const audio = document.querySelector(".audio");
+      const mainSongImg = document.querySelector(".preview-image");
+      const songName = document.querySelector(".song-name");
+      const artist = document.querySelector(".artist");
+      const image = localStorage.getItem("song-name");
+      const singer = localStorage.getItem("artist");
+      mainSongImg.src = `songs/${image}.jpg`;
+      songName.textContent = `${image.toUpperCase()}`;
+      artist.textContent = singer;
+      audio.src = `songs/${image}.mp3`;
+      let time = localStorage.getItem("time");
+      if (time != 0) {
+        time = Number.parseInt(time) + 2;
+      }
+      console.log(time);
+      audio.currentTime += time;
+      audio.play();
+    </script>
+  </body>
+</html>
